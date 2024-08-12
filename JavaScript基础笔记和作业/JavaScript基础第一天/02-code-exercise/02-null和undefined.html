@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+console.log(typeof 14 == 'number')
+console.log(Number(null)); // 0
+console.log(5 + null);  // 5
+console.log(Number(undefined)); // NaN
+console.log(5 + undefined); //NaN
+console.log(parseInt('123'));
+console.log(2 !== 2); //false
+console.log(NaN !== NaN); //true
+
+//--------------------------
+let obj = {
+  p1: 'Hello world',
+  p: function (x) {
+    return x * 2;
+  }
+}
+
+let obj2 = {
+  p: function (x) {
+    return x * 2
+  }
+}
+let res = obj2.p(12);
+console.log(res);
+
+// let o1 = {};
+// let o2 = {bar: 'Hello'}
+// o1.foo = o2;
+// console.log(o1.foo.bar);
+
+let obj3 = {
+  key1: 1,
+  key2: 2
+}
+console.log(Object.keys(obj))
+
+// delete obj3.key1;
+
+console.log(Object.keys(obj3))
+console.log(Object.values(obj3))
+if ('toString' in obj) {
+  console.log(2222222222222222)
+}
+
+let foo = {
+  a: 1,
+  b: 2,
+  c: 3
+}
+
+for (let i in foo) {
+  console.log(i)
+  console.log(foo[i])
+}
+console.log(foo.toString());
+
+let tempFunction = function (s) {
+  console.log(s)
+}
+
+tempFunction('sssssssss')
+
+
+//获取函数的参数名
+let myFunc = function () {
+};
+
+function test (f) {
+  console.log(f.name);
+}
+
+test(myFunc) // myFunc
+
+
+let myfunc111 = function () {
+
+}
+
+let multiLine = function (fn) {
+  let arr = fn.toString().split('\n');
+  return arr.slice(1, -1).join('\n');
+}
+
+function f1 () {/*
+  这是一个
+  多行注释
+*/
+}
+
+console.log(multiLine(f1));
+
+
+// function fib (num) {
+//   if (num === 1) return 1;
+//   if (num === 0) return 0;
+//   return fib(num - 1) + fib(num - 2);
+// }
+//
+// console.log(fib(1));
+// console.log(fib(2));
+// console.log(fib(2));
+// console.log(fib(3));
+// console.log(fib(4));
+// console.log(fib(5));
+// console.log(fib(6));
+
+function f (a, b) {
+  return a;
+}
+
+console.log(f(1, 2));
+console.log(f());
+console.log(f(undefined, 2));
+
+function concatenate () {
+  return Array.prototype.concat(arguments[0], arguments[1]);
+
+}
+
+let arr1 = [1, 2, 3, 4]
+let arr2 = [2, 3, 4, 5]
+console.log(concatenate(arr1, arr2));
+
+//将对象arguments转换为数组 arguments
+// Array.prototype.slice.call(arguments);
+
+// 创建Person构造函数
+function Person (name, age, height) {
+  this.name = name
+  this.age = age
+  this.height = height
+  this.hobby = ['Basketball', 'Football']
+}
+
+// 重新Peron的原型对象
+Person.prototype = {
+  constructor: Person,
+  sayHello: function () {
+    alert('Hello JavaScript')
+  }
+}
+// 创建对象
+var person1 = new Person('Coderwhy', 18, 1.88)
+var person2 = new Person('Kobe', 30, 1.98)
+
+// 测试是否共享了函数
+console.log(person1.sayHello == person2.sayHello) // true
+
+// 测试引用类型是否存在问题
+person1.hobby.push('tennis')
+console.log(person1.hobby)
+
+console.log(person2.hobby)
+
+class Parent {
+  constructor (name) {
+    this.name = name;
+    console.log('parent constructor')
+  }
+
+  sayHello () {
+    console.log('parent hello')
+  }
+}
+
+class Child extends Parent {
+  constructor (name, age) {
+    super(name);
+    this.age = age;
+    console.log('child constructor')
+  }
+}
+
+let child = new Child('Alice', 10)
+child.sayHello()
+console.log(`我的名字:${child.name} , 我的年龄${child.age}`);
+
+//对象arguments转为数组
+arguments = {}
+let arr = Array.prototype.slice.call(arguments)
+
+let person = {
+  toString: function () {
+    return 'Henry Norman Bethune'
+  },
+  toLocaleString: function () {
+    return '白求恩'
+  }
+};
+
+console.log(person.toString());
+console.log(person.toLocaleString());
+
+
+</script>
+</body>
+</html>

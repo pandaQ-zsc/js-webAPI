@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Title</title>
+</head>
+<body>
+搜索框：<input class="search" type="text">
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+<script>
+// let search = document.querySelector('.search');
+// let count = 0;
+//
+// function searchChange () {
+//   count++;
+//   console.log(`发送了 ${count} 次网络请求`)
+// }
+
+let search = document.querySelector('.search')
+let count = 0;
+
+function searchChange () {
+  count++;
+  console.log(`发送了${count} : 网络请求`)
+}
+
+
+//节流
+// search.oninput = _.throttle(searchChange, 1000)
+
+
+// function searchChange () {
+// count++;
+// console.log(`发送了 -- >  ${count} 次网络请求`)
+// console.log('Search term :', document.querySelector('.search').value)
+// console.log('ssssssssssssssssss')
+// }
+
+// search.oninput = searchChange;
+
+//防抖
+let _searchChange = _.debounce(searchChange, 500)
+search.oninput = _searchChange
+
+//处理oninput
+
+// search.oninput = searchChange;
+
+
+// 对searchChange处理
+// let _searchChange = _.debounce(searchChange, 500);
+
+let multiplier = {
+  factor: 2
+}
+let colors = ['red', 'blue', 'green'];
+colors.forEach(function (element, index, arr) {
+  console.log(`Element at ${index} is ${element} : ${index} * ${this.factor} `)
+}, multiplier);
+colors.forEach(function (element) {
+  console.log(element);
+})
+
+
+// 自定义防抖函数
+// function debounce (fn, delay) {
+//   let timer = null;
+//   return function () {
+//     if (timer) clearTimeout(timer);
+//     timer = setTimeout(function () {
+//       fn();
+//     }, delay)
+//   }
+// }
+
+// 自定义节流函数
+// function throttle (fn, interval) {
+//   let last = 0;
+//   return function () {
+//     let _this = this;
+//     let _arguments = arguments;
+//     let now = new Date().getTime();
+//     if (now - last > interval) {
+//       fn.apply(_this, arguments);
+//       last = now;
+//     }
+//   }
+// }
+
+</script>
+</body>
+</html>

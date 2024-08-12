@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+<script>
+//  这个写法会导致p的 configurable 和 enumerable 都为false
+
+// import _ from 'lodash';
+
+let objSet = Object.defineProperty({}, 'p', {
+  get: function () {
+    return 'getter'
+  },
+  set: function (value) {
+    console.log('setter ' + value)
+  }
+})
+console.log(objSet.p);
+objSet.p = 123
+// 存储器 写法二 （更常用）
+let objGet = {
+  get p () {
+    return 'getter'
+  },
+  set p (value) {
+    return 'setter: ' + value
+  }
+}
+
+let objGet2 = {
+  get p () {
+    return 'getter'
+  },
+  set p (value) {
+    console.log('setter' + value)
+  }
+}
+
+// 浅拷贝（复制值）
+let extend = function (from, to) {
+  for (let property in from) {
+    to[property] = from[property];
+  }
+  return to;
+}
+let oobj = extend({}, {
+  get a () {
+    return 1
+  }
+})
+console.log(oobj);
+
+
+//浅拷贝
+const shallowOriginal = {
+  a: 1,
+  b: {
+    c: 2
+  }
+}
+const copy = {...shallowOriginal}
+console.log(copy)
+copy.b.c = 4;
+console.log(copy)
+
+//深拷贝:
+// 1.使用JSON序列化和反序列化
+const deepOriginal = {
+  a: 1,
+  b: {
+    c: 3
+  }
+}
+console.log(deepOriginal);
+const deepCopy = JSON.parse(JSON.stringify(deepOriginal))
+deepCopy.b.c = 4
+console.log(deepCopy);
+// 2.使用第三方库 比如Lodash的'_.cloneDeep'方法
+const deepOriginal2 = {
+  a: 1,
+  b: {
+    c: 3
+  }
+}
+
+console.log(deepOriginal2);
+const deepCopy2 = _.cloneDeep(deepOriginal2)
+deepCopy2.b.c = 5;
+console.log(deepCopy2);
+
+
+</script>
+
+</body>
+</html>

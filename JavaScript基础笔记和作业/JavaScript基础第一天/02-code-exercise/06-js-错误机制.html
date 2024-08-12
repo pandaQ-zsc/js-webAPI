@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<a href="javascript: void(f())">文字</a>
+<br>
+<a href="#">文字2</a>
+
+<script>
+// //  JavaScript解析或运行的时候， 一旦发生错误，引擎就会抛出一个错误对象
+// //  JavaScript原生提供Error构造函数，所有抛出的错误都是这个构造函数的实例
+// let err = new Error('出错了~~~ ');
+// console.log(err.message);
+// // message: 错误提示信息
+// // name: 错误名称
+// // stack: 错误堆栈
+// if (err.name) {
+//   console.log(err.name + ' : ' + err.message)
+// }
+class CustomError extends Error {
+  constructor (message) {
+    super(message);
+    this.name = 'CustomError';
+  }
+}
+
+function riskyOperation () {
+  throw new CustomError('This is a custom error message');
+}
+
+// try {
+//   riskyOperation();
+// } catch (error) {
+//   if (error instanceof CustomError) {
+//     console.error('Caught a custom error:', error.message);
+//   } else {
+//     console.error('Caught an unexpected error:', error);
+//   }
+// }
+
+
+// readData();
+
+
+// function doAction (action) {
+//   switch (action) {
+//     case 'hack':
+//       return 'hack';
+//     case 'slash':
+//       return 'slash';
+//     case 'run':
+//       return 'run';
+//     default:
+//       throw new Error('Invalid action.');
+//   }
+// }
+
+// console.log(doAction('hack'));
+
+// function checkNumber (num) {
+//   if (typeof num !== 'number') {
+//     throw new Error('The provided value is not a number');
+//   }
+//   return num;
+//
+// }
+//
+// try {
+//   checkNumber('a string');
+// } catch (error) {
+//   console.error('Caught an error:', error.message);
+// } finally {
+//   console.log('Execution completed.');
+// }
+
+// function cleansUp () {
+//   try {
+//     throw new Error('出错了……');
+//     console.log('此行不会执行');
+//   } finally {
+//     console.log('完成清理工作');
+//   }
+// }
+
+//
+// cleansUp()
+// let a = 5;
+// do {
+//   console.log(a)
+//   a--;
+// } while (a > 0)
+
+function cleansUp () {
+  try {
+    throw new Error('出错了……');
+    console.log('此行不会执行');
+    // } catch (error) {
+    //   console.error(error.message);
+  } finally {
+    console.log('完成清理工作');
+  }
+}
+
+cleansUp()
+let a = 5;
+do {
+  console.log(a);
+  a--;
+} while (a > 0);
+
+</script>
+
+</body>
+</html>

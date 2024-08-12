@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+
+var obj1 = {p: 'a'};
+
+console.log(typeof Object.getOwnPropertyDescriptor(obj1, `p`));
+
+let number = 11 * 9;
+let color = 'red';
+console.log(
+        '%cThis text is styled!',
+        'color: red; background: yellow; font-size: 24px;'
+)
+
+let obj = Object.defineProperties({}, {
+  p1: {},
+  p2: {}
+})
+
+console.error('Error: %s (%i)', 'Server is not responding', 500)
+// Error: Server is not responding (500)
+console.warn('Warning! Too few nodes (%d)', document.childNodes.length)
+// Warning! Too few nodes (1)
+// let obj = {
+//   a: 1,
+//   b: 2
+// }
+// for (let i = 0; i < 5; i++) {
+//   console.log(i);
+//   if (i == 3) debugger
+// }
+
+//  这个写法会导致p的 configurable 和 enumerable 都为false
+let objSet = Object.defineProperty({}, 'p', {
+  get: function () {
+    return 'getter'
+  },
+  set: function (value) {
+    console.log('setter ' + value)
+  }
+})
+console.log(objSet.p);
+objSet.p = 123
+// 存储器 写法二 （更常用）
+let objGet = {
+  get p () {
+    return 'getter'
+  },
+  set p (value) {
+    return 'setter: ' + value
+  }
+}
+
+let objGet2 = {
+  get p () {
+    return 'getter'
+  },
+  set p (value) {
+    console.log('setter' + value)
+  }
+}
+
+// 浅拷贝（复制值）
+let extend = function (from, to) {
+  for (let property in from) {
+    to[property] = from[property];
+  }
+  return to;
+}
+let oobj = extend({}, {
+  get a () {
+    return 1
+  }
+})
+console.log(oobj);
+
+
+//浅拷贝
+const original = {
+  a: 1,
+  b: {
+    c: 2
+  }
+}
+const copy = {...original}
+console.log(copy)
+copy.b.c = 4;
+console.log(copy)
+
+
+</script>
+
+</body>
+</html>

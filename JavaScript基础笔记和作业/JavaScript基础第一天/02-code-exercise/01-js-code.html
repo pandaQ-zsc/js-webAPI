@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+//typeof的使用
+console.log(typeof window);  //object
+console.log(typeof {});  //object
+console.log(typeof []);  //object
+console.log(typeof null); // object
+
+let obj = {};
+let arr = [];
+
+//instance of的使用
+console.log(obj instanceof Object) //true
+console.log(arr instanceof Object) //true
+
+//空数组`[]`的类型也是object，这表示在javascript内部，数组本质上就是特殊的对象，`instanceof Array`运行符可以区分数组和对象。
+console.log(obj instanceof Array)  //false
+console.log(arr instanceof Array)  //true
+
+
+
+
+</script>
+</body>
+</html>
