@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>tab栏切换</title>
   <style>
     * {
@@ -70,50 +70,50 @@
 </head>
 
 <body>
-  <div class="tab">
-    <div class="tab-nav">
-      <h3>每日特价</h3>
-      <ul>
-        <li><a class="active" href="javascript:;">精选</a></li>
-        <li><a href="javascript:;">美食</a></li>
-        <li><a href="javascript:;">百货</a></li>
-        <li><a href="javascript:;">个护</a></li>
-        <li><a href="javascript:;">预告</a></li>
-      </ul>
-    </div>
-    <div class="tab-content">
-      <div class="item active"><img src="./images/tab00.png" alt="" /></div>
-      <div class="item"><img src="./images/tab01.png" alt="" /></div>
-      <div class="item"><img src="./images/tab02.png" alt="" /></div>
-      <div class="item"><img src="./images/tab03.png" alt="" /></div>
-      <div class="item"><img src="./images/tab04.png" alt="" /></div>
-    </div>
+<div class="tab">
+  <div class="tab-nav">
+    <h3>每日特价</h3>
+    <ul>
+      <li><a class="active" href="javascript:;">精选</a></li>
+      <li><a href="javascript:;">美食</a></li>
+      <li><a href="javascript:;">百货</a></li>
+      <li><a href="javascript:;">个护</a></li>
+      <li><a href="javascript:;">预告</a></li>
+    </ul>
   </div>
-  <script>
-    // 1. a 模块制作 要给 5个链接绑定鼠标经过事件
-    // 1.1 获取 a 元素 
-    const as = document.querySelectorAll('.tab-nav a')
-    // console.log(as) 
-    for (let i = 0; i < as.length; i++) {
-      // console.log(as[i])
-      // 要给 5个链接绑定鼠标经过事件
-      as[i].addEventListener('mouseenter', function () {
-        // console.log('鼠标经过')
-        // 排他思想  
-        // 干掉别人 移除类active
-        document.querySelector('.tab-nav .active').classList.remove('active')
-        // 我登基 我添加类 active  this 当前的那个 a 
-        this.classList.add('active')
+  <div class="tab-content">
+    <div class="item active"><img src="./images/tab00.png" alt=""/></div>
+    <div class="item"><img src="./images/tab01.png" alt=""/></div>
+    <div class="item"><img src="./images/tab02.png" alt=""/></div>
+    <div class="item"><img src="./images/tab03.png" alt=""/></div>
+    <div class="item"><img src="./images/tab04.png" alt=""/></div>
+  </div>
+</div>
+<script>
+// 1. a 模块制作 要给 5个链接绑定鼠标经过事件
+// 1.1 获取 a 元素
+const as = document.querySelectorAll('.tab-nav a')
+// console.log(as)
+for (let i = 0; i < as.length; i++) {
+  // console.log(as[i])
+  // 要给 5个链接绑定鼠标经过事件
+  as[i].addEventListener('mouseenter', function () {
+    // console.log('鼠标经过')
+    // 排他思想
+    // 干掉别人 移除类active
+    document.querySelector('.tab-nav .active').classList.remove('active')
+    // 我登基 我添加类 active  this 当前的那个 a
+    this.classList.add('active')
 
-        // 下面5个大盒子 一一对应  .item 
-        // 干掉别人
-        document.querySelector('.tab-content .active').classList.remove('active')
-        // 对应序号的那个 item 显示 添加 active 类
-        document.querySelector(`.tab-content .item:nth-child(${i + 1})`).classList.add('active')
+    // 下面5个大盒子 一一对应  .item
+    // 干掉别人
+    document.querySelector('.tab-content .active').classList.remove('active')
+    // 对应序号的那个 item 显示 添加 active 类
+    document.querySelector(`.tab-content .item:nth-child(${i + 1})`).classList.add('active')
 
-      })
-    }
-  </script>
+  })
+}
+</script>
 </body>
 
 </html>

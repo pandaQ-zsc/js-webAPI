@@ -62,22 +62,22 @@ const start = document.querySelector('.start')
 const end = document.querySelector('.end')
 let random = 0
 let timeId = 0
-
 start.addEventListener('click', function () {
-  if (arr.length === 1) {
-    start.disabled = end.disabled = true
-  }
   timeId = setInterval(function () {
     random = Math.floor(Math.random() * arr.length)
     qs.innerHTML = arr[random]
-  }, 40)
+  }, 30)
 
+  if (arr.length === 1) {
+    start.disabled = end.disabled = true
+    clearInterval(timeId)
+  }
 })
 
 end.addEventListener('click', function () {
-  clearTimeout(timeId)
-  let deleteEl = arr.splice(random, 1)
-  console.log(deleteEl)
+  clearInterval(timeId)
+  arr.splice(random, 1)
+
 })
 
 
