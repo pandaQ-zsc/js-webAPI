@@ -1245,22 +1245,52 @@
 // 第二第三都放到另外一个执行函数里面
 (function () {
   const list = document.querySelector('.xtx-elevator-list')
+
   list.addEventListener('click', function (e) {
-    if (e.target.nodeName === 'A') {
+    // 注意这里最后一个li是不参与事件点击的 ，因此需要排除最后一个的点击事件
+    console.log(e.target.dataset.name)  // undefined
+    if (e.target.nodeName === 'A' && e.target.dataset.name) {
       const old = document.querySelector('.xtx-elevator-list .active')
       // 如果old没有.active类 则old为null  进入不了if代码块
       // 排他思想，先取消active 再添加active
       if (old) {
         old.classList.remove('active')
       }
-      console.log(e)
-      console.log(e.target)
+      // console.log(e)
+      // console.log(e.target)
       e.target.classList.add('active')
-
+      // 根据小盒子的自定义属性 去选择 对应的大盒子
       const top = document.querySelector(`.xtx_goods_${e.target.dataset.name}`).offsetTop
       console.log(top)
       // 让页面滚动到对应的位置
       document.documentElement.scrollTop = top
+    }
+  })
+  // 3. 页面滚动，可以根据大盒子选 小盒子 添加active类
+  window.addEventListener('scroll', function () {
+    const old = document.querySelector('.xtx-elevator-list .active')
+    // 如果old没有.active类 则old为null  进入不了if代码块
+    // 排他思想，先取消active 再添加active
+    if (old) {
+      old.classList.remove('active')
+    }
+    // 获取四个大盒子
+    const news = document.querySelector('.xtx_goods_new')
+    const popular = document.querySelector('.xtx_goods_popular')
+    const brand = document.querySelector('.xtx_goods_brand')
+    const topic = document.querySelector('.xtx_goods_topic')
+    let n = document.documentElement.scrollTop
+    if (n >= news.offsetTop && n < popular.offsetTop) {
+      // 这里是小盒子添加样式 ， 注意！！！ 不是news 大盒子.xtx_goods_new
+      // error !!! news.classList.add('active')
+      // 使用属性选择器
+      document.querySelector('[data-name=new]').classList.add('active')
+    } else if (n >= popular.offsetTop && n < brand.offsetTop) {
+      document.querySelector('[data-name=popular]').classList.add('active')
+    } else if (n >= brand.offsetTop && n < topic.offsetTop) {
+      document.querySelector('[data-name=brand]').classList.add('active')
+    } else {
+      document.querySelector('[data-name=topic]').classList.add('active')
     }
   })
 })()
