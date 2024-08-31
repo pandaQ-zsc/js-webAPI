@@ -8,6 +8,7 @@
   <title>Document</title>
   <style>
     div {
+      /* 行内块元素：可根据内容宽度变化宽度， 块级元素则直接是整行的宽度 */
       display: inline-block;
       /* width: 200px; */
       height: 200px;
@@ -19,15 +20,15 @@
 </head>
 
 <body>
-  <div>123123123123123123123123123123123123123</div>
-  <script>
-    const div = document.querySelector('div')
-    console.log(div.clientWidth)
-    // resize 浏览器窗口大小发生变化的时候触发的事件
-    window.addEventListener('resize', function () {
-      console.log(1)
-    })
-  </script>
+<div>123123123123123123123123123123123123123</div>
+<script>
+const div = document.querySelector('div')
+console.log(div.clientWidth)
+// resize 浏览器窗口大小发生变化的时候触发的事件
+window.addEventListener('resize', function () {
+  console.log(1)
+})
+</script>
 </body>
 
 </html>

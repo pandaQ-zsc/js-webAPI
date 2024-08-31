@@ -17,14 +17,17 @@
 </head>
 
 <body>
-  <input type="text" value="123" data-id="0" data-name="andy">
-  <input type="password">
-  <script>
-    const input = document.querySelector('input[value]')
-    // console.log(input)
-    console.log(input.dataset) // 自定义属性集合
-    console.log(input.dataset.name) // 自定义属性集合
-  </script>
+<input type="text" value="123" data-id="0" data-name="xxx">
+<input type="password">
+<script>
+// 选择input中有value的  input
+const input = document.querySelector('input[value]')
+
+console.log(input)
+console.log(input.dataset) // 自定义属性集合
+console.log(input.dataset.name) // 自定义属性集合
+input.value = input.dataset.name
+</script>
 </body>
 
 </html>

@@ -9,19 +9,19 @@
 </head>
 
 <body>
-  <ul>
-    <li>1</li>
-    <li>2</li>
-    <li>3</li>
-  </ul>
-  <script>
-    const ul = document.querySelector('ul')
-    // 1 克隆节点  元素.cloneNode(true)
-    // const li1 = ul.children[0].cloneNode(true)
-    // console.log(li1)
-    // 2. 追加
-    ul.appendChild(ul.children[0].cloneNode(true))
-  </script>
+<ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+</ul>
+<script>
+const ul = document.querySelector('ul')
+// 1 克隆节点  元素.cloneNode(true)
+// const li1 = ul.children[0].cloneNode(true)
+// console.log(li1)
+// 2. 追加  只有cloneNode(true)时候li中的1才会被完全克隆出来
+ul.appendChild(ul.children[0].cloneNode(true))
+</script>
 </body>
 
 </html>

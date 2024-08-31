@@ -1283,7 +1283,7 @@
     if (n >= news.offsetTop && n < popular.offsetTop) {
       // 这里是小盒子添加样式 ， 注意！！！ 不是news 大盒子.xtx_goods_new
       // error !!! news.classList.add('active')
-      // 使用属性选择器
+      // 使用属性选择器,根据标签的属性来进行选择
       document.querySelector('[data-name=new]').classList.add('active')
     } else if (n >= popular.offsetTop && n < brand.offsetTop) {
       document.querySelector('[data-name=popular]').classList.add('active')

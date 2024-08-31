@@ -8,6 +8,7 @@ function foo () {
   return bar
 }
 
-
 const closure = foo()
 closure()
+
+console.log(Date.now())

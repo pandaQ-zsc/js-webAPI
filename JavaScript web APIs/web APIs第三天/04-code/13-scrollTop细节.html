@@ -14,15 +14,16 @@
 </head>
 
 <body>
-  <script>
-    document.documentElement.scrollTop = 800
-    window.addEventListener('scroll', function () {
-      // 必须写到里面
-      const n = document.documentElement.scrollTop
-      // 得到是什么数据   数字型 不带单位
-      // console.log(n)
-    })
-  </script>
+<script>
+//  设置页面初始化的时候,就直接定位到800px的位置上去
+document.documentElement.scrollTop = 800
+window.addEventListener('scroll', function () {
+  // 必须写到里面
+  const n = document.documentElement.scrollTop
+  // 得到是什么数据   数字型 不带单位
+  console.log(n)
+})
+</script>
 </body>
 
 </html>

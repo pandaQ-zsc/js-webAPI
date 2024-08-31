@@ -89,25 +89,39 @@
     <div class="item"><img src="./images/tab04.png" alt=""/></div>
   </div>
 </div>
-
-</body>
 <script>
+// 采取事件委托的形式 tab栏切换
+// 1. 获取 ul 父元素 因为 ul只有一个
 const ul = document.querySelector('.tab-nav ul')
-// const items = document.querySelectorAll('.tab-content .item')
+// 获取 5个 item
+const items = document.querySelectorAll('.tab-content .item')
+// 2. 添加事件
 ul.addEventListener('click', function (e) {
-  if (e.target.nodeName === 'A') {
+  console.log(e.target.nodeName)  // e.target是我们点击的对象
+  // 我们只有点击了 a 才会 进行 添加类和删除类操作
+  // console.log(e.target.tagName)  // e.target.tagName 点击那个对象的 标签名
+  if (e.target.tagName === 'A') {
+    // console.log('我选的是a')
+    // 排他思想 ，先移除原来的active
     document.querySelector('.tab-nav .active').classList.remove('active')
-    // console.log(e.target)
+    //当前元素添加 active  是 e.target
+    // this 指向ul 不能用this
     e.target.classList.add('active')
-    let i = +e.target.dataset.id
+
+    // 下面大盒子模块 这里的dataset
+    // console.log(e.target.dataset.id)
+    //  这里的“+”是将data-id的字符串转化成数字
+    const i = +e.target.dataset.id
+    // 排他思想 ，先移除原来的active
     document.querySelector('.tab-content .active').classList.remove('active')
-    document.querySelector(`.tab-content .item:nth-child(${i + 1})`).classList.add('active')
-    // items[i].classList.add('active')
+    // 对应的大盒子 添加 active
+    // 方式一
+    // document.querySelector(`.tab-content .item:nth-child(${i + 1})`).classList.add('active')
+    //  方式二
+    items[i].classList.add('active')
   }
-
 })
-
-
 </script>
+</body>
 
 </html>
