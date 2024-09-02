@@ -9,15 +9,15 @@
 </head>
 
 <body>
-  <!-- <input type="text"> -->
-  <input type="checkbox" name="" id="">
-  <script>
-    // change 事件 内容发生了变化
-    const input = document.querySelector('input')
-    input.addEventListener('change', function () {
-      console.log(111)
-    })
-  </script>
+<!-- <input type="text"> -->
+<input type="text" name="" id="">
+<script>
+// change 事件 内容发生了变化,并且离开焦点以后会触发change事件
+const input = document.querySelector('input')
+input.addEventListener('change', function () {
+  console.log(111)
+})
+</script>
 </body>
 
 </html>

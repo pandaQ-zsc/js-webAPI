@@ -9,15 +9,16 @@
 </head>
 
 <body>
-  <script>
-    console.log(/^java$/.test('java'))
-    console.log(/^java$/i.test('JAVA'))
-    console.log(/^java$/i.test('Java'))
-    const str = 'java是一门编程语言， 学完JAVA工资很高'
-    // const re = str.replace(/java|JAVA/g, '前端')
-    const re = str.replace(/java/ig, '前端')
-    console.log(re)  // 前端是一门编程语言， 学完前端工资很高
-  </script>
+<script>
+console.log(/^java$/.test('java'))
+console.log(/^java$/i.test('JAVA'))
+console.log(/^java$/i.test('Java'))
+const str = 'java是一门编程语言， 学完JAVA工资很高'
+//如果不加/g的话，只会替换其中的一个java，如果加上/g的话，会用前端替代所有的'Java'
+// const re = str.replace(/java|JAVA/g, '前端')
+const re = str.replace(/java/ig, '前端')
+console.log(re)  // 前端是一门编程语言， 学完前端工资很高
+</script>
 </body>
 
 </html>
