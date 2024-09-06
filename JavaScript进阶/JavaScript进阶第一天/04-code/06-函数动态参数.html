@@ -9,20 +9,35 @@
 </head>
 
 <body>
-  <script>
-    function getSum() {
-      // arguments 动态参数 只存在于 函数里面
-      // 是伪数组 里面存储的是传递过来的实参
-      // console.log(arguments)  [2,3,4]
-      let sum = 0
-      for (let i = 0; i < arguments.length; i++) {
-        sum += arguments[i]
-      }
-      console.log(sum)
-    }
-    getSum(2, 3, 4)
-    getSum(1, 2, 3, 4, 2, 2, 3, 4)
-  </script>
+<script>
+function getSum () {
+  // arguments 动态参数 只存在于 函数里面
+  // 是伪数组 里面存储的是传递过来的实参
+  // console.log(arguments)  [2,3,4]
+  console.log(arguments)
+  let sum = 0
+  for (let i = 0; i < arguments.length; i++) {
+    sum += arguments[i]
+  }
+  console.log(sum)
+}
+
+getSum(2, 3, 4)
+getSum(1, 2, 3, 4, 2, 2, 3, 4)
+
+function getSum2 (...arg) {
+  console.log(arg)
+  let sum = 0
+  for (let i = 0; i < arg.length; i++) {
+    sum += arg[i]
+  }
+  console.log(sum)
+}
+
+getSum2(2, 3, 4)
+getSum2(1, 2, 3, 4, 2, 2, 3, 4)
+
+</script>
 </body>
 
 </html>

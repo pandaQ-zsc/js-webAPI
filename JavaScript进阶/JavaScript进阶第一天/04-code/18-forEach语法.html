@@ -9,15 +9,14 @@
 </head>
 
 <body>
-  <script>
-    // forEach 就是遍历  加强版的for循环  适合于遍历数组对象
-    const arr = ['red', 'green', 'pink']
-    const result = arr.forEach(function (item, index) {
-      console.log(item)  // 数组元素 red  green pink
-      console.log(index) // 索引号
-    })
-    // console.log(result)
-  </script>
+<script>
+// forEach 就是遍历,不返回  加强版的for循环  适合于遍历数组对象
+const arr = ['red', 'green', 'pink']
+arr.forEach(function (item, index) {
+  console.log(item)  // 数组元素 red  green pink
+  console.log(index) // 索引号
+})
+</script>
 </body>
 
 </html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="parent">
+  Parent
+  <span id="child">Child</span>
+</div>
+
+<script>
+document.getElementById('parent').addEventListener('mouseover', function (event) {
+  console.log('Mouse over on: ', event.target.id)
+})
+
+document.getElementById('parent').addEventListener('mouseenter', function (event) {
+  console.log('Mouse enter on: ', event.target.id)
+})
+
+</script>
+</body>
+</html>

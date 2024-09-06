@@ -77,6 +77,33 @@
     </div>
   </div>
   <script>
+    const tab_nav  = document.querySelector('.tab-nav')
+    const pane = document.querySelectorAll('.tab-pane')
+    tab_nav.addEventListener('click',function(e){
+      if (e.target.tagName === 'A'){
+        tab_nav.querySelector('.active').classList.remove('active')
+        e.target.classList.add('active')
+        for (let i = 0; i < pane.length; i++) {
+          pane[i].style.display = 'none'
+        }
+        console.log(e.target.dataset.id)
+        //这里运用到技巧给标签设置 data-id = "0" 然后通过e.target.dataset来选择标签
+        pane[e.target.dataset.id].style.display = 'block'
+      }
+    })
+    const form = document.querySelector('form')
+    const agree = document.querySelector('[name=agree]')
+    const username = document.querySelector('[name=username]')
+    form.addEventListener('submit',function(e){
+      e.preventDefault()
+      //判是否勾选同意协议
+      if (!agree.checked){
+        return alert('请勾选同意协议')
+      }
+      // 记录用户名到本地存储
+      localStorage.setItem('xtx-uname',username.value)
+      location.href = './index.html'
+    })
 
   </script>
 </body>

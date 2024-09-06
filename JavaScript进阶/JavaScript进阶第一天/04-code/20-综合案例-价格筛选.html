@@ -152,7 +152,7 @@
     function render(arr) {
       // 声明空字符串
       let str = ''
-      // 遍历数组 
+      // 遍历数组
       arr.forEach(item => {
         // 解构
         const { name, picture, price } = item
@@ -161,21 +161,21 @@
           <img src=${picture} alt="">
           <p class="name">${name}</p>
           <p class="price">${price}</p>
-        </div> 
+        </div>
         `
       })
-      // 追加给list 
+      // 追加给list
       document.querySelector('.list').innerHTML = str
     }
     render(goodsList)  // 页面一打开就需要渲染
 
-    // 2. 过滤筛选  
+    // 2. 过滤筛选
     document.querySelector('.filter').addEventListener('click', e => {
       // e.target.dataset.index   e.target.tagName
       const { tagName, dataset } = e.target
-      // 判断 
+      // 判断
       if (tagName === 'A') {
-        // console.log(11) 
+        // console.log(11)
         // arr 返回的新数组
         let arr = goodsList
         if (dataset.index === '1') {
