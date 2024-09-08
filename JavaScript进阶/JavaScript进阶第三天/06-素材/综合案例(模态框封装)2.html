@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>面向对象封装消息提示</title>
   <style>
     .modal {
@@ -64,18 +64,42 @@
 </head>
 
 <body>
-  <button id="delete">删除</button>
-  <button id="login">登录</button>
+<button id="delete">删除</button>
+<button id="login">登录</button>
 
-  <!-- <div class="modal">
-    <div class="header">温馨提示 <i>x</i></div>
-    <div class="body">您没有删除权限操作</div>
-  </div> -->
+<!-- <div class="modal">
+  <div class="header">温馨提示 <i>x</i></div>
+  <div class="body">您没有删除权限操作</div>
+</div> -->
 
 
-  <script>
+<script>
+function Modal (title = '', message = '') {
+  this.title = title
+  this.message = message
+  this.modalBox = document.createElement('div')
+  this.modalBox.className = 'modal'
+  this.modalBox.innerHTML =
+          `
+        <div class="header">${this.title} <i>x</i></div>
+        <div class="body">${this.message}</div>
+      `
+}
 
-  </script>
+Modal.prototype.open = function () {
+  document.body.append(this.modalBox)
+}
+document.querySelector('#delete').addEventListener('click', () => {
+  const del = new Modal('温馨提示', '你没有权限删除')
+  del.open()
+})
+document.querySelector('#login').addEventListener('click', () => {
+  const login = new Modal('友情提示', '你还没有登录呢')
+  login.open()
+})
+
+
+</script>
 </body>
 
 </html>
