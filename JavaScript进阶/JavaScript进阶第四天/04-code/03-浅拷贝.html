@@ -9,27 +9,31 @@
 </head>
 
 <body>
-  <script>
-    const obj = {
-      uname: 'pink',
-      age: 18,
-      family: {
-        baby: '小pink'
-      }
-    }
-    // 浅拷贝
-    // const o = { ...obj }
-    // console.log(o)
-    // o.age = 20
-    // console.log(o)
-    // console.log(obj)
-    const o = {}
-    Object.assign(o, obj)
-    o.age = 20
-    o.family.baby = '老pink'
-    console.log(o)
-    console.log(obj)
-  </script>
+<script>
+const obj = {
+  uname: 'pink',
+  age: 18,
+  family: {
+    baby: '小pink',
+  },
+}
+// 浅拷贝2: 拷贝对象属性被赋值后，不影响原对象属性
+
+// 方式1： const o = { ...obj }
+// const o = { ...obj }
+// console.log(o)
+// o.age = 20
+// console.log(o)
+// console.log(obj)
+
+// 方式2：Object.assign(target, source)
+const o = {}
+Object.assign(o, obj)
+o.age = 20
+o.family.baby = '老pink'
+console.log(o)
+console.log(obj)
+</script>
 </body>
 
 </html>
