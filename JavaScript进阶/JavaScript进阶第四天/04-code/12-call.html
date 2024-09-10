@@ -9,18 +9,20 @@
 </head>
 
 <body>
-  <script>
-    const obj = {
-      uname: 'pink'
-    }
-    function fn(x, y) {
-      console.log(this) // window
-      console.log(x + y)
-    }
-    // 1. 调用函数  
-    // 2. 改变 this 指向
-    fn.call(obj, 1, 2)
-  </script>
+<script>
+const obj = {
+  uname: 'pink',
+}
+
+function fn (x, y) {
+  console.log(this) // window
+  console.log(x + y)
+}
+
+// 1. 调用函数
+// 2. 改变 this 指向: 让fn中原本指向window的this指向obj
+fn.call(obj, 1, 2)
+</script>
 </body>
 
 </html>
