@@ -29,6 +29,11 @@ function mouseMove () {
   // 如果里面存在大量操作 dom 的情况，可能会卡顿
 }
 
+// box.addEventListener('mousemove',function(){})
+//由于这里是debounce() 这里是调用函数
+// 而不是debounce函数或者 function(){}这种 匿名函数 ，当有事件发生按照函数名调用函数，因此这里的debounce需要return function(){}
+box.addEventListener('mousemove', debounce(mouseMove, 200))
+
 // 防抖函数
 // 核心是利用setTimeout定时器实现
 // 1. 声明定时器变量
@@ -47,11 +52,6 @@ function debounce (fn, t) {
     }, t)
   }
 }
-
-// box.addEventListener('mousemove',function(){})
-//由于这里是debounce() 这里是调用函数
-// 而不是debounce函数或者 function(){}这种 匿名函数 ，当有事件发生按照函数名调用函数，因此这里的debounce需要return function(){}
-box.addEventListener('mousemove', debounce(mouseMove, 200))
 
 </script>
 </body>

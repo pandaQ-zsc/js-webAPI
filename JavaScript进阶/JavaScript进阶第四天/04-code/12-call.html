@@ -21,7 +21,10 @@ function fn (x, y) {
 
 // 1. 调用函数
 // 2. 改变 this 指向: 让fn中原本指向window的this指向obj
-fn.call(obj, 1, 2)
+fn.call(obj, 1, 2) // Object
+// 3. 返回值: 本身就是在调用函数，所以返回值就是函数的返回值
+// 设置为null 不改变Math 函数中的this指向
+fn.call(null, 1, 2) // window
 </script>
 </body>
 
